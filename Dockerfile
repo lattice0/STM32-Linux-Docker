@@ -20,3 +20,5 @@ RUN git clone https://github.com/texane/stlink \
     && cd stlink \
     && make release && make debug \
     && cd build/Release; sudo make install
+
+ENTRYPOINT "/bin/bash"
