@@ -31,14 +31,14 @@ RUN git clone git://git.code.sf.net/p/openocd/code openocd-code \
 
 WORKDIR /home/gcc-toolchain
 
-RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz \
+RUN wget --progress=bar:force:noscroll https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz \
     && tar -jxvf gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz
 
-ENV PATH="/home/gcc-toolchain/gcc-arm-none-eabi-7-2017-q4-major/:${PATH}"
+ENV PATH="/home/gcc-toolchain/gcc-arm-none-eabi-7-2017-q4-major/bin/:${PATH}"
 
-RUN mv gcc-arm-none-eabi-7-2017-q4-major/bin/* /usr/bin \
- && mv gcc-arm-none-eabi-7-2017-q4-major/lib/* /usr/lib \
- && mv gcc-arm-none-eabi-7-2017-q4-major/share/* /usr/share
+#RUN mv gcc-arm-none-eabi-7-2017-q4-major/bin/* /usr/bin/ \
+# && mv gcc-arm-none-eabi-7-2017-q4-major/lib/* /usr/lib/ \
+# && mv gcc-arm-none-eabi-7-2017-q4-major/share/* /usr/share
 
 WORKDIR /home/project
 
